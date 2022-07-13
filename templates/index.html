@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>COVID PNEUMONIA Classification</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAJz5vAJPY2AAzPWMATKaxAE+IjgC6s94AO05XAJfl7QA3PIQAEiwyAEV1cQAqPkMANjQ3AF6orgB6gKsALEFDACtndQAZODsAYWF9ABkpVgCHvMUAHl1hAECvuwBFMkwAn8niABAiJwA0NnwANSI4AEqOmABjyM8ARXN1AGtrkgAnZnMAdHN9AFF6gQBcc3UAMC+MALC24ABEaWoAO5afAB40XQA3PH0AlsHDAElucABJOWIAl4m+AD48hgBmp60AkMjqAHp2fgAWOUAAQTNIAGqlywA8RUgATYiIAFemqwBSg4sAQkhRAB9HRgBgeosAFC4yABgXUAAUMDgAQqGvAE9MVAC1qdYAJCFKABg5QQB2pqsAVE1pADRykAAoOkQAhHmaAD16hABTYnsAZGmqADIpYgBiq7IAk8HpAEyfoQAlG0IApvHxAB0adQATSUUAREBEAFBtpQARSEsAa7q7AFikpwBpsc0AGiB+AFJGiwAsI1oAg8/VAAcKGgBPZHkAOX+CACdpbgA6MjYARUJ3AE1TYgBfk5kAcW6xACo0NABOdaMAXY3GABxKQAAuW2AAJB55AC87QABbWHEAWICgAKuk0wBCSG8AQlhXAGCutAB3w8UALkhMAIzZ4gBelpoAdc7UAGt/pgCH4vQAr+rwAEc6RgA6bnUARzZMAFxepwAGGFcAMDMyAC5UZwAqNz4ARpeeAJjf/QARU2UAJC50ACZKSgAxL24AIi8wACcaSwAjMjkAK1NcACZaXwBBQqYAPjdrAGKWrQApIGYAf7OyABpPUQAkPlQAKSZvAE6SmQA0hIsAInN0AFNscAAJO0MARzx6AFZSlwBna6sAZaywAA0kagAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAghBiPQA3AAAAAAAAAABjAh1onHk/EpUAAAAAAAAjiw2FRX+DfSx1BaAAAAAAGigHNFocF19wMkhXAAAAlG5zkpZGQ09RExl2mhEAABaYQRhAgYxJPjFpLScfAAAAXpuIXZORexRNZCl0DAAADmYiCQNbQqFxkAYbjh58AAgwbyqHJS5TimqGXGtVAABZBIl6nZ9yRy9nIEt3YQAAAACZZWBWlzVtASY2OwAAAABYTitUD4BMnjwLRFAAAAAAAABKOTgzeCSNbACEAAAAAAAAjwAACn4hUhUAAAAAAAAAAAAAAAA6AAAAAAAAAP//AAD4XwAA4A8AAMADAADAAwAAgAEAAIABAADAAQAAgAAAAIABAACAAQAA4AMAAMADAADwCwAA9g8AAP9/AAA="
+    rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:rgb(161, 210, 229);">
+
+  <div class="container" >
+    <h1 class="jumbotron bg-primary" style="margin-bottom: 0px;margin-top: 5px;background-color: ghostwhite;">COVID PNEUMONIA DETECTION</h1>
+    <br><br>
+    <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Upload Your Chest X-Ray Image :</label>
+        <div class="col-sm-10">
+          <input type="file" class="form-control" placeholder="Hours Studied" name="my_image" id="pwd">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    {% if prediction %}
+    <div style="margin-left: 400px"class="image">
+      <h2 > {{prediction}}</h2>
+      <img src="{{img_path}}" height="280px" width="300px">
+    </div>
+
+    {% endif %}
+
+  </div>
+</body>
+
+</html>
